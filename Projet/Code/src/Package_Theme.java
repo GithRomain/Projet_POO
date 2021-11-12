@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 class Themes
 {
@@ -11,7 +9,7 @@ class Themes
     public Themes(List<String> themeList)
     {
         this.themeList = themeList;
-        ind_theme = 0;
+        ind_theme = new Random().nextInt(this.themeList.size());
     }
 
     //Getters
@@ -44,41 +42,27 @@ class Themes
         return ind_theme;
     }
 
-    public int selection_theme_saisie() //gerer exception, theme exist pas dans la liste
+    public void selection_theme_saisie(List<String> stringList_select) //à mettre dans questions plutot
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("(String) Saisir thème parmis :\n" + toString());
-        String new_theme = scanner.next();
+        System.out.println("\nSaisir un indice parmis les thèmes :\n" + string(stringList_select));
 
-        for(String theme : themeList)
-        {
-            if(theme.equals(new_theme))
-            {
-                if(themeList.indexOf(theme) != ind_theme)
-                {
-                    setInd_theme(themeList.indexOf(theme));
-                }
-                else
-                {
-                    System.out.println("Ce thème à était choisit par le candidat précédent, veuillez en choisir un autre");
-                    selection_theme_saisie();
-                }
-            }
-
-        }
-        return ind_theme;
+        int ind = scanner.nextInt();
+        setInd_theme(selection_theme(stringList_select.get(ind)));
     }
 
-    public List<Integer> selection_n_theme(int n) //exception
+    public List<String> selection_n_theme(int n) //à mettre dans questions plutot
     {
-        List<Integer> tab = new ArrayList<>();
-
-        for(int i = 0; i < n; i++)
+        List<String> themesList_select = new ArrayList<>();
+        while(themesList_select.size() != n)
         {
-            int ind = selection_theme_saisie();
-            tab.add(ind);
+            int ind = new Random().nextInt(themeList.size());
+            if(!themesList_select.contains(themeList.get(ind)))
+            {
+                themesList_select.add(themeList.get(ind));
+            }
         }
-        return tab;
+        return themesList_select;
     }
 
     public void suppr(String theme)
@@ -86,10 +70,21 @@ class Themes
         themeList.remove(selection_theme(theme));
     }
 
+    public String string(List<String> stringList)
+    {
+        String str = "";
+        for(String theme : stringList)
+        {
+            str += theme + ", Indice : " + stringList.indexOf(theme)
+                    + "\n";
+        }
+        return str;
+    }
+
     @Override
     public String toString()
     {
-        String str = "Liste des thèmes :\n";
+        String str = "\nListe des thèmes :\n";
         for(String theme : themeList)
         {
             str += theme + ", Indice : " + themeList.indexOf(theme)

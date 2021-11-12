@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 abstract class Question
 {
@@ -273,7 +270,7 @@ class Questions
         {
             mat_questions.add(new LinkedList<>());
         }
-        ind_question = 0;
+        //ind_question = new Random().nextInt(mat_questions.get(this.themes.getInd_theme()).size()); deja init dans presentation
     }
 
     //Getters
@@ -303,38 +300,97 @@ class Questions
         themes.suppr(theme);
     }
 
-    public List<Question> selection(int phase)
+    public void selection_n_theme_saisie(int n)
     {
-        List<Question> questions_posees = new ArrayList<>();
-        switch (phase)
-        {
-            case 1: // 1 theme(random -> sequentiel) 1 question par joueur-> 4 questions
-            {
-                String theme = themes.getThemeList().get((int) Math.random() % themes.getThemeList().size()); //selection d'un theme aléatoire
-                themes.selection_theme(theme); // ind_theme setté dans Theme grace à la fct selection
-                ind_question = ((int) Math.random()) % mat_questions.get(themes.getInd_theme() % themes.getThemeList().size()).size();//initialisation aléatoire sans sorti de la liste
+        List<Integer> integerList = new LinkedList<>();
+        List<Integer> integerList2 = new LinkedList<>();
+        List<String> stringList = new LinkedList<>();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nSaisir 3 indices differents parmis :" + themes);
 
-                while (questions_posees.size() != 4)
+        for(int i = 0; i < n; i++)
+        {
+            int ind = scanner.nextInt();
+            integerList.add(ind);
+        }
+        for(int i = 0; i < themes.getThemeList().size(); i++)
+        {
+            if(!integerList.contains(i))
+            {
+                integerList2.add(i);
+            }
+        }
+        for(int i : integerList2)
+        {
+            stringList.add(themes.getThemeList().get(i));
+        }
+
+        for(int i = 0; i < integerList2.size(); i++)
+        {
+            suppr_theme(stringList.get(i));
+        }
+    }
+
+    public Question selection(int phase)
+    {
+        Question question = null;
+        switch(phase)
+        {
+            case 1:
+            {
+                while (question == null)
                 {
-                    if(phase == mat_questions.get(themes.getInd_theme()).get(ind_question).getD()) //verifier si indice de la question correspond à une question de niveau 1
+                    if (phase == mat_questions.get(themes.getInd_theme()).get(ind_question).getD())
                     {
-                        questions_posees.add(mat_questions.get(themes.getInd_theme()).get(ind_question));//modulo de l'indice theme car on revient au theme 0 si on depasse la liste
-                        themes.setInd_theme((themes.getInd_theme() + 1) % themes.getThemeList().size());//on cycle sur l'indice du theme (sequentiel)
+                        question = mat_questions.get(themes.getInd_theme()).get(ind_question);
+                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
                     }
-                    setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme() % themes.getThemeList().size()).size());//si c'est pas une question de niveau 1 alors on cherche la prochaine
+                    else
+                    {
+                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
+                    }
                 }
+                break;
             }
             case 2:
             {
+                List<String> stringList_select = themes.selection_n_theme(5);
+                themes.selection_theme_saisie(stringList_select);
+                setInd_question(new Random().nextInt(mat_questions.get(themes.getInd_theme()).size()));
 
+                while (question == null)
+                {
+                    if (phase == mat_questions.get(themes.getInd_theme()).get(ind_question).getD())
+                    {
+                        question = mat_questions.get(themes.getInd_theme()).get(ind_question);
+                        suppr_theme(themes.getThemeList().get(themes.getInd_theme()));
+                    }
+                    else
+                    {
+                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
+                    }
+                }
+                break;
             }
             case 3:
             {
-
+                while (question == null)
+                {
+                    if (phase == mat_questions.get(themes.getInd_theme()).get(ind_question).getD())
+                    {
+                        question = mat_questions.get(themes.getInd_theme()).get(ind_question);
+                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
+                    }
+                    else
+                    {
+                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
+                    }
+                }
+                break;
             }
-            default:
+            default: //pass
         }
-        return questions_posees;
+        return question;
     }
 
     @Override
