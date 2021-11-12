@@ -1,0 +1,3 @@
+Lucas : (QCM, VF, RC) (héritage)
+Kupata : Themes + Joueur + Joueurs
+moi : abstraite Question + Questions + interface Phase + main
