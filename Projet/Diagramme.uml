@@ -3,71 +3,549 @@
   <ID>JAVA</ID>
   <OriginalElement>Projet</OriginalElement>
   <nodes>
-    <node x="165.81795803066996" y="1756.9405165456014">Projet.Phase2</node>
-    <node x="-501.7225988700566" y="1756.9405165456014">Projet.Presentation</node>
-    <node x="-177.4523204196933" y="1756.9405165456014">Projet.Phase1</node>
-    <node x="-490.2225988700565" y="485.5570621468927">Projet.Themes</node>
-    <node x="509.0882364810333" y="1756.9405165456014">Projet.Phase3</node>
-    <node x="-503.7225988700566" y="2252.4786141575278">Projet.Jeu</node>
-    <node x="-535.7225988700566" y="1202.6542372881354">Projet.QCM</node>
-    <node x="-218.2887005649718" y="19.45988700564976">Projet.Chrono</node>
-    <node x="-501.7225988700566" y="1491.654519774011">Projet.Phase</node>
-    <node x="-90.30535061482209" y="1202.6542372881354">Projet.VF</node>
-    <node x="229.1118976404124" y="1202.6542372881354">Projet.RC</node>
-    <node x="-503.7225988700566" y="2583.5">Projet.Main</node>
-    <node x="-490.2225988700565" y="19.45988700564976">Projet.Joueur</node>
-    <node x="147.59774011299436" y="19.45988700564976">Projet.Joueurs</node>
-    <node x="-490.2225988700565" y="827.1056497175142">Projet.Question</node>
-    <node x="100.32352941176464" y="2252.4786141575278">Projet.Grand_jeu</node>
-    <node x="622.2562146892657" y="827.1056497175142">Projet.Questions</node>
+    <node x="615.7499999999999" y="1608.0">Projet.Phase2</node>
+    <node x="1116.4823446327682" y="1674.5">Projet.Presentation</node>
+    <node x="295.9999999999999" y="1608.0">Projet.Phase1</node>
+    <node x="334.3016713747637" y="452.5">Projet.Themes</node>
+    <node x="0.0" y="1619.0">Projet.Phase3</node>
+    <node x="1480.7323446327682" y="2105.0">Projet.Jeu</node>
+    <node x="1423.2006826741986" y="1269.0">Projet.QCM</node>
+    <node x="1867.9683380414303" y="0.0">Projet.Chrono</node>
+    <node x="2068.2006826741986" y="1303.0">Projet.Phase</node>
+    <node x="1182.2006826741986" y="1302.5">Projet.VF</node>
+    <node x="1767.2006826741986" y="1280.0">Projet.RC</node>
+    <node x="1633.333333333333" y="2763.0">Projet.Main</node>
+    <node x="1858.9683380414303" y="474.5">Projet.Joueur</node>
+    <node x="925.4683380414303" y="920.5">Projet.Joueurs</node>
+    <node x="1355.7183380414303" y="441.0">Projet.Question</node>
+    <node x="1622.833333333333" y="2413.0">Projet.Grand_jeu</node>
+    <node x="458.7499999999999" y="876.0">Projet.Questions</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="Projet.Phase2" target="Projet.Phase" relationship="REALIZATION">
-      <point x="0.0" y="-216.5" />
-      <point x="303.31795803066996" y="1676.654802259887" />
-      <point x="-373.7225988700566" y="1676.654802259887" />
-      <point x="0.0" y="83.5" />
-    </edge>
-    <edge source="Projet.Phase3" target="Projet.Phase" relationship="REALIZATION">
-      <point x="0.0" y="-205.5" />
-      <point x="646.5882364810333" y="1676.654802259887" />
-      <point x="-373.7225988700566" y="1676.654802259887" />
-      <point x="0.0" y="83.5" />
+    <edge source="Projet.Phase1" target="Projet.Questions" relationship="TO_ONE">
+      <point x="130.0000000000001" y="-216.5" />
+      <point x="563.5" y="1383.0" />
+      <point x="568.0" y="1383.0" />
+      <point x="-30.749999999999886" y="139.5" />
     </edge>
     <edge source="Projet.Presentation" target="Projet.Phase" relationship="REALIZATION">
-      <point x="0.0" y="-150.0" />
-      <point x="0.0" y="83.5" />
+      <point x="-95.48234463276822" y="-150.0" />
+      <point x="1149.0" y="1595.0" />
+      <point x="2206.701" y="1595.0" />
+      <point x="10.500317325801461" y="83.5" />
     </edge>
-    <edge source="Projet.VF" target="Projet.Question" relationship="GENERALIZATION">
-      <point x="0.0" y="-84.0" />
-      <point x="8.694649385177911" y="1166.6542372881354" />
-      <point x="-373.7225988700565" y="1166.6542372881354" />
-      <point x="0.0" y="150.5" />
+    <edge source="Projet.Presentation" target="Projet.Joueurs" relationship="CREATE">
+      <point x="-120.5" y="-150.0" />
+      <point x="17.014006591337875" y="95.0" />
     </edge>
-    <edge source="Projet.RC" target="Projet.Question" relationship="GENERALIZATION">
-      <point x="0.0" y="-106.5" />
-      <point x="348.6118976404124" y="1165.3799435028247" />
-      <point x="-373.7225988700565" y="1165.3799435028247" />
-      <point x="0.0" y="150.5" />
+    <edge source="Projet.Phase3" target="Projet.Questions" relationship="TO_ONE">
+      <point x="-75.0" y="-205.5" />
+      <point x="62.5" y="1383.0" />
+      <point x="568.0" y="1383.0" />
+      <point x="-30.749999999999886" y="139.5" />
     </edge>
-    <edge source="Projet.QCM" target="Projet.Question" relationship="GENERALIZATION">
-      <point x="0.0" y="-117.5" />
-      <point x="-373.7225988700566" y="1166.6542372881354" />
-      <point x="-373.7225988700565" y="1166.6542372881354" />
-      <point x="0.0" y="150.5" />
+    <edge source="Projet.Phase2" target="Projet.Questions" relationship="TO_ONE">
+      <point x="23.250000000000114" y="216.5" />
+      <point x="776.5" y="2063.0" />
+      <point x="991.0" y="2063.0" />
+      <point x="991.0" y="1383.0" />
+      <point x="568.0" y="1383.0" />
+      <point x="-30.749999999999886" y="139.5" />
+    </edge>
+    <edge source="Projet.VF" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="3.1732580146126566E-4" y="84.0" />
+      <point x="1281.201" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.RC" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="3.1732580146126566E-4" y="106.5" />
+      <point x="1886.701" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.Questions" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="140.0000000000001" y="0.0" />
+      <point x="909.0" y="1015.5" />
+      <point x="909.0" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.Jeu" target="Projet.Phase" relationship="TO_ONE">
+      <point x="130.0" y="0.0" />
+      <point x="2236.701" y="2233.0" />
+      <point x="40.50031732580146" y="83.5" />
+    </edge>
+    <edge source="Projet.Jeu" target="Projet.Presentation" relationship="CREATE">
+      <point x="15.0" y="-128.0" />
+      <point x="1625.7323446327682" y="1854.5" />
+      <point x="128.0" y="30.0" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.QCM" relationship="CREATE">
+      <point x="128.0" y="-15.0" />
+      <point x="1570.201" y="1809.5" />
+      <point x="-14.999682674198539" y="117.5" />
+    </edge>
+    <edge source="Projet.Grand_jeu" target="Projet.Jeu" relationship="CREATE">
+      <point x="14.999666666667054" y="-150.0" />
+      <point x="112.10065536723187" y="128.0" />
+    </edge>
+    <edge source="Projet.Joueurs" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="-181.50033804143038" y="0.0" />
+      <point x="909.0" y="1015.5" />
+      <point x="909.0" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.Grand_jeu" target="Projet.Joueur" relationship="DEPENDENCY">
+      <point x="-85.00033333333295" y="0.0" />
+      <point x="1402.0" y="2563.0" />
+      <point x="1402.0" y="1582.0" />
+      <point x="2038.0" y="1582.0" />
+      <point x="2038.0" y="734.5" />
+      <point x="1961.968" y="734.5" />
+      <point x="-3.380414302682766E-4" y="117.0" />
+    </edge>
+    <edge source="Projet.Joueur" target="Projet.Chrono" relationship="TO_ONE">
+      <point x="10.0" y="-117.0" />
+      <point x="15.0" y="194.5" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.Questions" relationship="CREATE">
+      <point x="-128.0" y="-15.0" />
+      <point x="1051.0" y="1809.5" />
+      <point x="1051.0" y="1128.0" />
+      <point x="140.0" y="112.5" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Joueurs" relationship="TO_ONE">
+      <point x="115.00000000000011" y="-216.5" />
+      <point x="548.5" y="1438.0" />
+      <point x="1091.968" y="1438.0" />
+      <point x="-15.000338041430268" y="95.0" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Joueurs" relationship="TO_ONE">
+      <point x="15.000000000000114" y="-216.5" />
+      <point x="768.25" y="1438.0" />
+      <point x="1091.968" y="1438.0" />
+      <point x="-15.000338041430268" y="95.0" />
+    </edge>
+    <edge source="Projet.Questions" target="Projet.Themes" relationship="TO_ONE">
+      <point x="1.1368683772161603E-13" y="139.5" />
+      <point x="598.75" y="1514.0" />
+      <point x="441.25" y="1514.0" />
+      <point x="-44.551671374763714" y="139.0" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Joueurs" relationship="TO_ONE">
+      <point x="-90.0" y="-205.5" />
+      <point x="47.5" y="1438.0" />
+      <point x="1091.968" y="1438.0" />
+      <point x="-15.000338041430268" y="95.0" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Question" relationship="DEPENDENCY">
+      <point x="1.1368683772161603E-13" y="216.5" />
+      <point x="433.5" y="2064.0" />
+      <point x="-17.5" y="2064.0" />
+      <point x="-17.5" y="1493.0" />
+      <point x="1400.5" y="1493.0" />
+      <point x="-71.71833804143034" y="150.5" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Question" relationship="DEPENDENCY">
+      <point x="1.1368683772161603E-13" y="216.5" />
+      <point x="753.25" y="2064.0" />
+      <point x="-17.5" y="2064.0" />
+      <point x="-17.5" y="1493.0" />
+      <point x="1400.5" y="1493.0" />
+      <point x="-71.71833804143034" y="150.5" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.RC" relationship="CREATE">
+      <point x="128.0" y="15.0" />
+      <point x="1901.701" y="1839.5" />
+      <point x="15.000317325801461" y="106.5" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.VF" relationship="CREATE">
+      <point x="51.718655367231804" y="-150.0" />
+      <point x="15.000317325801461" y="84.0" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Question" relationship="DEPENDENCY">
+      <point x="-60.0" y="-205.5" />
+      <point x="77.5" y="1493.0" />
+      <point x="1400.5" y="1493.0" />
+      <point x="-71.71833804143034" y="150.5" />
+    </edge>
+    <edge source="Projet.Grand_jeu" target="Projet.Jeu" relationship="TO_ONE">
+      <point x="-85.0" y="-15.0" />
+      <point x="1595.732" y="2548.0" />
+      <point x="-15.000344632768247" y="128.0" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Themes" relationship="TO_ONE">
+      <point x="-67.24999999999989" y="-216.5" />
+      <point x="686.0" y="1514.0" />
+      <point x="441.25" y="1514.0" />
+      <point x="-44.551671374763714" y="139.0" />
+    </edge>
+    <edge source="Projet.Questions" target="Projet.Question" relationship="DEPENDENCY">
+      <point x="89.75000000000011" y="139.5" />
+      <point x="688.5" y="1493.0" />
+      <point x="1400.5" y="1493.0" />
+      <point x="-71.71833804143034" y="150.5" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Themes" relationship="TO_ONE">
+      <point x="15.000000000000114" y="-216.5" />
+      <point x="448.5" y="1514.0" />
+      <point x="441.25" y="1514.0" />
+      <point x="-44.551671374763714" y="139.0" />
+    </edge>
+    <edge source="Projet.Joueur" target="Projet.Chrono" relationship="CREATE">
+      <point x="-5.0" y="-117.0" />
+      <point x="0.0" y="194.5" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.Joueur" relationship="DEPENDENCY">
+      <point x="127.99965536723175" y="0.0" />
+      <point x="1402.0" y="1824.5" />
+      <point x="1402.0" y="1582.0" />
+      <point x="2038.0" y="1582.0" />
+      <point x="2038.0" y="734.5" />
+      <point x="1961.968" y="734.5" />
+      <point x="-3.380414302682766E-4" y="117.0" />
+    </edge>
+    <edge source="Projet.Phase" target="Projet.Questions" relationship="DEPENDENCY">
+      <point x="-14.999682674198539" y="-83.5" />
+      <point x="2181.201" y="423.5" />
+      <point x="32.5" y="423.5" />
+      <point x="32.5" y="1466.0" />
+      <point x="533.5" y="1466.0" />
+      <point x="-65.24999999999989" y="139.5" />
+    </edge>
+    <edge source="Projet.Jeu" target="Projet.Joueur" relationship="DEPENDENCY">
+      <point x="-130.00034463276825" y="-15.0" />
+      <point x="1402.0" y="2218.0" />
+      <point x="1402.0" y="1582.0" />
+      <point x="2038.0" y="1582.0" />
+      <point x="2038.0" y="734.5" />
+      <point x="1961.968" y="734.5" />
+      <point x="-3.380414302682766E-4" y="117.0" />
+    </edge>
+    <edge source="Projet.Phase" target="Projet.Themes" relationship="DEPENDENCY">
+      <point x="3.1732580146126566E-4" y="83.5" />
+      <point x="2196.201" y="1535.0" />
+      <point x="92.5" y="1535.0" />
+      <point x="92.5" y="591.5" />
+      <point x="-151.4996713747637" y="0.0" />
+    </edge>
+    <edge source="Projet.Themes" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="151.5003286252363" y="0.0" />
+      <point x="909.0" y="591.5" />
+      <point x="909.0" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.Phase" target="Projet.Joueur" relationship="DEPENDENCY">
+      <point x="-127.99968267419854" y="0.0" />
+      <point x="2038.0" y="1386.5" />
+      <point x="2038.0" y="734.5" />
+      <point x="1961.968" y="734.5" />
+      <point x="-3.380414302682766E-4" y="117.0" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="1.1368683772161603E-13" y="-216.5" />
+      <point x="433.5" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="137.5000000000001" y="0.0" />
+      <point x="909.0" y="1824.5" />
+      <point x="909.0" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="0.0" y="-205.5" />
+      <point x="137.5" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Themes" relationship="TO_ONE">
+      <point x="-30.0" y="-205.5" />
+      <point x="107.5" y="1514.0" />
+      <point x="441.25" y="1514.0" />
+      <point x="-44.551671374763714" y="139.0" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Phase" relationship="REALIZATION">
+      <point x="-137.4999999999999" y="-145.0" />
+      <point x="593.0" y="1679.5" />
+      <point x="593.0" y="1595.0" />
+      <point x="2206.701" y="1595.0" />
+      <point x="10.500317325801461" y="83.5" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Phase" relationship="REALIZATION">
+      <point x="10.5" y="-205.5" />
+      <point x="148.0" y="1550.0" />
+      <point x="593.0" y="1550.0" />
+      <point x="593.0" y="1595.0" />
+      <point x="2206.701" y="1595.0" />
+      <point x="10.500317325801461" y="83.5" />
+    </edge>
+    <edge source="Projet.Jeu" target="Projet.Phase" relationship="DEPENDENCY">
+      <point x="-3.446327682468109E-4" y="128.0" />
+      <point x="1610.732" y="2387.0" />
+      <point x="2221.701" y="2387.0" />
+      <point x="25.50031732580146" y="83.5" />
+    </edge>
+    <edge source="Projet.Grand_jeu" target="Projet.Phase" relationship="DEPENDENCY">
+      <point x="-3.333333329464949E-4" y="-150.0" />
+      <point x="1707.833" y="2387.0" />
+      <point x="2221.701" y="2387.0" />
+      <point x="25.50031732580146" y="83.5" />
+    </edge>
+    <edge source="Projet.Jeu" target="Projet.Phase1" relationship="CREATE">
+      <point x="-130.0" y="-30.0" />
+      <point x="418.5" y="2203.0" />
+      <point x="-14.999999999999886" y="216.5" />
+    </edge>
+    <edge source="Projet.Jeu" target="Projet.Phase2" relationship="CREATE">
+      <point x="0.0" y="-128.0" />
+      <point x="1610.7323446327682" y="1992.0" />
+      <point x="137.5" y="167.5" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Questions" relationship="DEPENDENCY">
+      <point x="-29.999999999999886" y="-216.5" />
+      <point x="723.25" y="1466.0" />
+      <point x="533.5" y="1466.0" />
+      <point x="-65.24999999999989" y="139.5" />
+    </edge>
+    <edge source="Projet.Jeu" target="Projet.Phase3" relationship="CREATE">
+      <point x="-130.0" y="15.0" />
+      <point x="-62.5" y="2248.0" />
+      <point x="-62.5" y="1824.5" />
+      <point x="-137.5" y="0.0" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.Questions" relationship="TO_ONE">
+      <point x="-3.446327682468109E-4" y="150.0" />
+      <point x="1244.482" y="2063.0" />
+      <point x="991.0" y="2063.0" />
+      <point x="991.0" y="1383.0" />
+      <point x="568.0" y="1383.0" />
+      <point x="-30.749999999999886" y="139.5" />
     </edge>
     <edge source="Projet.Phase1" target="Projet.Phase" relationship="REALIZATION">
-      <point x="0.0" y="-216.5" />
-      <point x="-39.95232041969331" y="1676.654802259887" />
-      <point x="-373.7225988700566" y="1676.654802259887" />
-      <point x="0.0" y="83.5" />
+      <point x="137.5000000000001" y="-145.0" />
+      <point x="593.0" y="1679.5" />
+      <point x="593.0" y="1595.0" />
+      <point x="2206.701" y="1595.0" />
+      <point x="10.500317325801461" y="83.5" />
+    </edge>
+    <edge source="Projet.Phase" target="Projet.Joueurs" relationship="DEPENDENCY">
+      <point x="3.1732580146126566E-4" y="-83.5" />
+      <point x="2196.201" y="1212.0" />
+      <point x="1106.968" y="1212.0" />
+      <point x="-3.380414302682766E-4" y="95.0" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Questions" relationship="DEPENDENCY">
+      <point x="30.000000000000114" y="-216.5" />
+      <point x="463.5" y="1466.0" />
+      <point x="533.5" y="1466.0" />
+      <point x="-65.24999999999989" y="139.5" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Joueurs" relationship="DEPENDENCY">
+      <point x="0.0" y="205.5" />
+      <point x="137.5" y="2085.0" />
+      <point x="2341.701" y="2085.0" />
+      <point x="2341.701" y="1212.0" />
+      <point x="1106.968" y="1212.0" />
+      <point x="-3.380414302682766E-4" y="95.0" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Questions" relationship="DEPENDENCY">
+      <point x="-105.0" y="-205.5" />
+      <point x="32.5" y="1466.0" />
+      <point x="533.5" y="1466.0" />
+      <point x="-65.24999999999989" y="139.5" />
+    </edge>
+    <edge source="Projet.Questions" target="Projet.Themes" relationship="DEPENDENCY">
+      <point x="-14.999999999999886" y="139.5" />
+      <point x="583.75" y="1535.0" />
+      <point x="92.5" y="1535.0" />
+      <point x="92.5" y="591.5" />
+      <point x="-151.4996713747637" y="0.0" />
+    </edge>
+    <edge source="Projet.Joueurs" target="Projet.Joueur" relationship="TO_MANY">
+      <point x="181.49966195856973" y="0.0" />
+      <point x="2023.0" y="1015.5" />
+      <point x="2023.0" y="858.5" />
+      <point x="1886.701" y="858.5" />
+      <point x="-75.26733804143032" y="117.0" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Joueurs" relationship="DEPENDENCY">
+      <point x="137.5000000000001" y="0.0" />
+      <point x="600.0" y="1824.5" />
+      <point x="600.0" y="2085.0" />
+      <point x="2341.701" y="2085.0" />
+      <point x="2341.701" y="1212.0" />
+      <point x="1106.968" y="1212.0" />
+      <point x="-3.380414302682766E-4" y="95.0" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.Themes" relationship="CREATE">
+      <point x="14.999655367231753" y="150.0" />
+      <point x="1259.482" y="2263.0" />
+      <point x="-77.5" y="2263.0" />
+      <point x="-77.5" y="576.5" />
+      <point x="-151.5" y="-15.0" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Joueurs" relationship="DEPENDENCY">
+      <point x="-137.4999999999999" y="0.0" />
+      <point x="600.0" y="1824.5" />
+      <point x="600.0" y="2085.0" />
+      <point x="2341.701" y="2085.0" />
+      <point x="2341.701" y="1212.0" />
+      <point x="1106.968" y="1212.0" />
+      <point x="-3.380414302682766E-4" y="95.0" />
+    </edge>
+    <edge source="Projet.QCM" target="Projet.Question" relationship="GENERALIZATION">
+      <point x="3.1732580146126566E-4" y="-117.5" />
+      <point x="1585.201" y="1241.0" />
+      <point x="1472.218" y="1241.0" />
+      <point x="-3.380414302682766E-4" y="150.5" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Chrono" relationship="DEPENDENCY">
+      <point x="30.000000000000114" y="-216.5" />
+      <point x="783.25" y="1241.0" />
+      <point x="17.5" y="1241.0" />
+      <point x="17.5" y="194.5" />
+      <point x="-89.00033804143027" y="0.0" />
+    </edge>
+    <edge source="Projet.Main" target="Projet.Grand_jeu" relationship="CREATE">
+      <point x="0.0" y="-39.5" />
+      <point x="0.0" y="150.0" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Chrono" relationship="DEPENDENCY">
+      <point x="-44.999999999999886" y="-216.5" />
+      <point x="388.5" y="1241.0" />
+      <point x="17.5" y="1241.0" />
+      <point x="17.5" y="194.5" />
+      <point x="-89.00033804143027" y="0.0" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Chrono" relationship="DEPENDENCY">
+      <point x="-120.0" y="-205.5" />
+      <point x="17.5" y="194.5" />
+      <point x="-89.00033804143027" y="0.0" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Themes" relationship="DEPENDENCY">
+      <point x="-45.0" y="-205.5" />
+      <point x="92.5" y="591.5" />
+      <point x="-151.4996713747637" y="0.0" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Themes" relationship="DEPENDENCY">
+      <point x="-14.999999999999886" y="-216.5" />
+      <point x="738.25" y="1535.0" />
+      <point x="92.5" y="1535.0" />
+      <point x="92.5" y="591.5" />
+      <point x="-151.4996713747637" y="0.0" />
+    </edge>
+    <edge source="Projet.Grand_jeu" target="Projet.Joueur" relationship="TO_MANY">
+      <point x="84.99966666666705" y="0.0" />
+      <point x="2023.0" y="2563.0" />
+      <point x="2023.0" y="858.5" />
+      <point x="1886.701" y="858.5" />
+      <point x="-75.26733804143032" y="117.0" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.Question" relationship="DEPENDENCY">
+      <point x="14.999655367231753" y="-150.0" />
+      <point x="1259.482" y="1493.0" />
+      <point x="1400.5" y="1493.0" />
+      <point x="-71.71833804143034" y="150.5" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.Joueurs" relationship="TO_ONE">
+      <point x="-84.98234463276822" y="-150.0" />
+      <point x="1159.5" y="1438.0" />
+      <point x="1091.968" y="1438.0" />
+      <point x="-15.000338041430268" y="95.0" />
+    </edge>
+    <edge source="Projet.Joueurs" target="Projet.Joueur" relationship="CREATE">
+      <point x="181.5" y="-15.0" />
+      <point x="1871.701" y="1000.5" />
+      <point x="-90.26733804143032" y="117.0" />
+    </edge>
+    <edge source="Projet.Grand_jeu" target="Projet.Joueurs" relationship="DEPENDENCY">
+      <point x="50.39866666666694" y="-150.0" />
+      <point x="1758.232" y="2085.0" />
+      <point x="2341.701" y="2085.0" />
+      <point x="2341.701" y="1212.0" />
+      <point x="1106.968" y="1212.0" />
+      <point x="-3.380414302682766E-4" y="95.0" />
+    </edge>
+    <edge source="Projet.Phase2" target="Projet.Joueur" relationship="DEPENDENCY">
+      <point x="1.1368683772161603E-13" y="-216.5" />
+      <point x="753.25" y="1582.0" />
+      <point x="2038.0" y="1582.0" />
+      <point x="2038.0" y="734.5" />
+      <point x="1961.968" y="734.5" />
+      <point x="-3.380414302682766E-4" y="117.0" />
+    </edge>
+    <edge source="Projet.Phase3" target="Projet.Joueur" relationship="DEPENDENCY">
+      <point x="-15.0" y="-205.5" />
+      <point x="122.5" y="1582.0" />
+      <point x="2038.0" y="1582.0" />
+      <point x="2038.0" y="734.5" />
+      <point x="1961.968" y="734.5" />
+      <point x="-3.380414302682766E-4" y="117.0" />
+    </edge>
+    <edge source="Projet.VF" target="Projet.Question" relationship="GENERALIZATION">
+      <point x="3.1732580146126566E-4" y="-84.0" />
+      <point x="1281.201" y="1241.0" />
+      <point x="1472.218" y="1241.0" />
+      <point x="-3.380414302682766E-4" y="150.5" />
+    </edge>
+    <edge source="Projet.QCM" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="3.1732580146126566E-4" y="117.5" />
+      <point x="1585.201" y="1556.0" />
+      <point x="1006.0" y="1556.0" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.RC" target="Projet.Question" relationship="GENERALIZATION">
+      <point x="3.1732580146126566E-4" y="-106.5" />
+      <point x="1886.701" y="1241.0" />
+      <point x="1472.218" y="1241.0" />
+      <point x="-3.380414302682766E-4" y="150.5" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.Jeu" relationship="DEPENDENCY">
+      <point x="-128.00034463276825" y="0.0" />
+      <point x="1006.0" y="1824.5" />
+      <point x="1006.0" y="2233.0" />
+      <point x="-130.00034463276825" y="0.0" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Joueur" relationship="DEPENDENCY">
+      <point x="-14.999999999999886" y="-216.5" />
+      <point x="418.5" y="1582.0" />
+      <point x="2038.0" y="1582.0" />
+      <point x="2038.0" y="734.5" />
+      <point x="1961.968" y="734.5" />
+      <point x="-3.380414302682766E-4" y="117.0" />
+    </edge>
+    <edge source="Projet.Presentation" target="Projet.Themes" relationship="TO_ONE">
+      <point x="-3.446327682468109E-4" y="-150.0" />
+      <point x="1244.482" y="1514.0" />
+      <point x="441.25" y="1514.0" />
+      <point x="-44.551671374763714" y="139.0" />
+    </edge>
+    <edge source="Projet.Phase1" target="Projet.Themes" relationship="DEPENDENCY">
+      <point x="-29.999999999999886" y="-216.5" />
+      <point x="403.5" y="1535.0" />
+      <point x="92.5" y="1535.0" />
+      <point x="92.5" y="591.5" />
+      <point x="-151.4996713747637" y="0.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.85" showDependencies="false" x="21.0" y="2246.0" />
-  <SelectedNodes>
-    <node>Projet.Grand_jeu</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic" zoom="0.27568134171907754" showDependencies="true" x="1132.0" y="1421.0" />
+  <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>
     <Category>Fields</Category>
