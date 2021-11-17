@@ -3,22 +3,22 @@ package Projet;
 import java.util.*;
 
 class Questions { //faire tableaux en fct du theme
-    private Themes_ok themes;
-    private List<LinkedList<Question_ok>> mat_questions; //exception taille entre 5 et 10 à faire
+    private Themes themes;
+    private List<LinkedList<Question>> mat_questions; //exception taille entre 5 et 10 à faire
     private int ind_question;
 
     //Constructeur
-    public Questions(Themes_ok themes) {
+    public Questions(Themes themes) {
         this.themes = themes;
-        mat_questions = new ArrayList<LinkedList<Question_ok>>();
+        mat_questions = new ArrayList<LinkedList<Question>>(); //Array car on va bcp se déplacer dans la liste des thèmes
         for (String theme : themes.getThemeList()) {
-            mat_questions.add(new LinkedList<>());
+            mat_questions.add(new LinkedList<>()); //ajouter les lignes dans la matrice
         }
-        //ind_question = new Random().nextInt(mat_questions.get(this.themes.getInd_theme()).size()); deja init dans presentation
+        //ind_question on l'instanci par default
     }
 
     //Getters
-    public List<LinkedList<Question_ok>> getMat_questions() {
+    public List<LinkedList<Question>> getMat_questions() {
         return mat_questions;
     }
 
@@ -28,7 +28,7 @@ class Questions { //faire tableaux en fct du theme
     }
 
     //Methodes
-    public void ajout_question(Question_ok question) {
+    public void ajout_question(Question question) {
         mat_questions.get(themes.selection_theme(question.getT())).add(question);
     }
 
@@ -41,7 +41,8 @@ class Questions { //faire tableaux en fct du theme
         themes.suppr(theme);
     }
 
-    public void selection_n_theme_saisie(int n) {
+    public void selection_n_theme_saisie(int n) //
+    {
         List<Integer> integerList = new LinkedList<>();
         List<Integer> integerList2 = new LinkedList<>();
         List<String> stringList = new LinkedList<>();
@@ -50,6 +51,7 @@ class Questions { //faire tableaux en fct du theme
 
         for (int i = 0; i < n; i++) {
             int ind = scanner.nextInt();
+            Jeu.sortir(String.valueOf(ind));
             integerList.add(ind);
         }
         for (int i = 0; i < themes.getThemeList().size(); i++) {
@@ -66,23 +68,25 @@ class Questions { //faire tableaux en fct du theme
         }
     }
 
-    public Question_ok selection(int phase) {
-        Question_ok question = null;
+    public Question selection(int phase) {
+        Question question = null;
         switch (phase) {
-            case 1: {
+            case 1:
+            case 3: {
                 while (question == null) {
-                    if (phase == mat_questions.get(themes.getInd_theme()).get(ind_question).getD()) {
-                        question = mat_questions.get(themes.getInd_theme()).get(ind_question);
-                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
+                    if (phase == mat_questions.get(themes.getInd_theme()).get(ind_question).getD()) //on selectionne la question avec la bonne difficulte
+                    {
+                        question = mat_questions.get(themes.getInd_theme()).get(ind_question); //selection question
+                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size()); //on passe a la question suivante pour la selection de la question suivante
                     } else {
-                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
+                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size()); //si la difficulté n'est pas la bonn e on avance dans la liste
                     }
                 }
                 break;
             }
             case 2: {
-                List<String> stringList_select = themes.selection_n_theme(5);
-                themes.selection_theme_saisie(stringList_select);
+                List<String> stringList_select = themes.selection_n_theme(5); //on préselctionne 5 theme a chaque noiuvelle questions
+                themes.selection_theme_saisie(stringList_select); //et le joueur en chosit 1
                 setInd_question(new Random().nextInt(mat_questions.get(themes.getInd_theme()).size()));
 
                 while (question == null) {
@@ -95,18 +99,27 @@ class Questions { //faire tableaux en fct du theme
                 }
                 break;
             }
-            case 3: {
-                while (question == null) {
-                    if (phase == mat_questions.get(themes.getInd_theme()).get(ind_question).getD()) {
-                        question = mat_questions.get(themes.getInd_theme()).get(ind_question);
-                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
-                    } else {
-                        setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
-                    }
-                }
-                break;
-            }
             default: //pass
+        }
+        return question;
+    }
+
+    public Question selection_theme_phase2_IA()
+    {
+        Question question = null;
+        List<String> stringList_select = themes.selection_n_theme(5); //on préselctionne 5 theme a chaque noiuvelle questions
+        int ind = new Random().nextInt(stringList_select.size());
+        themes.selection_theme_saisie_IA(stringList_select, ind); //et le joueur en chosit 1
+        setInd_question(new Random().nextInt(mat_questions.get(themes.getInd_theme()).size()));
+        System.out.println(ind);
+
+        while (question == null) {
+            if (2 == mat_questions.get(themes.getInd_theme()).get(ind_question).getD()) {
+                question = mat_questions.get(themes.getInd_theme()).get(ind_question);
+                suppr_theme(themes.getThemeList().get(themes.getInd_theme()));
+            } else {
+                setInd_question((ind_question + 1) % mat_questions.get(themes.getInd_theme()).size());
+            }
         }
         return question;
     }
@@ -115,9 +128,9 @@ class Questions { //faire tableaux en fct du theme
     public String toString() {
         String str = "Listes des questions par thèmes :";
 
-        for (LinkedList<Question_ok> liste_question : mat_questions) {
+        for (LinkedList<Question> liste_question : mat_questions) {
             str += "\n" + themes.getThemeList().get(mat_questions.indexOf(liste_question)) + " :";
-            for (Question_ok question : liste_question) {
+            for (Question question : liste_question) {
                 str += "\n  - " + question;
             }
             str += "\n";

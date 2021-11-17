@@ -1,21 +1,26 @@
 package Projet;
 
+import java.util.*;
+
 public class Main {
     public static void main(String[]args)
     {
-        //Phase
-        Phase presentation = new Presentation();
-        presentation.deroulement_phase();
+        /*
+        Jeu jeu = new Jeu();
+        jeu.start();
+         */
 
-        Phase phase1 = new Phase1(presentation);
-        phase1.deroulement_phase();
+        /*
+        Grand_jeu grand_jeu = new Grand_jeu();
+        grand_jeu.start();
+         */
 
-        Phase phase2 = new Phase2(phase1);
-        phase2.deroulement_phase();
+        /*
+        Jeu jeu = new Jeu();
+        jeu.start_IA();
+         */
 
-        Phase phase3 = new Phase3(phase2);
-        Joueur_ok joueur_gagnant = phase3.deroulement_phase();
-
-        System.out.println("\nLe gagnant du jeu est :\n" + joueur_gagnant);
+        Grand_jeu grand_jeu = new Grand_jeu();
+        grand_jeu.start_IA();
     }
 }

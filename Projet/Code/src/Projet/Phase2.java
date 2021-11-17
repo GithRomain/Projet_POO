@@ -1,11 +1,12 @@
 package Projet;
 
+import java.util.List;
 import java.util.Scanner;
 
 class Phase2 implements Phase {
     private final int num_phase = 2;
-    private Joueurs_ok joueurs;
-    private Themes_ok themes;
+    private Joueurs joueurs;
+    private Themes themes;
     private Questions questions;
 
     //Constructeurs
@@ -15,12 +16,19 @@ class Phase2 implements Phase {
         questions = phase.getQuestions();
     }
 
+    public Phase2(Phase phase, List<Joueur> joueurs) {
+        this.joueurs = phase.getJoueurs();
+        this.joueurs.setJoueurs(joueurs);
+        themes = phase.getThemes();
+        questions = phase.getQuestions();
+    }
+
     //Getters
-    public Joueurs_ok getJoueurs() {
+    public Joueurs getJoueurs() {
         return joueurs;
     }
 
-    public Themes_ok getThemes() {
+    public Themes getThemes() {
         return themes;
     }
 
@@ -35,19 +43,27 @@ class Phase2 implements Phase {
         joueurs.generer_ensemble_participants(3); //Générer les 3 joueurs
     }
 
-    public void poser_question(Joueur_ok joueur, Question_ok question) {
+    public void poser_question(Joueur joueur, Question question) {
         String str = "\nRépondez à la question suivante : \n"
                 + question;
         System.out.println(str);
     }
 
-    public String reponse_question(Question_ok question) {
+    public String reponse_question(Question question) {
         Scanner scanner = new Scanner(System.in);
-        String reponse = scanner.next();
+        String reponse = scanner.nextLine();
+        Jeu.sortir(reponse);
         return reponse;
     }
 
-    public void test_reponse(Joueur_ok joueur, Question_ok question, String reponse) {
+    public String reponse_question_IA(Question question) {
+        String reponse = question.reponse_IA();
+
+        Jeu.sortir(reponse);
+        return reponse;
+    }
+
+    public void test_reponse(Joueur joueur, Question question, String reponse) {
         if (question.getR().equals(reponse)) {
             joueur.mise_a_jour_score(3);
             System.out.println("Réponse juste");
@@ -59,13 +75,71 @@ class Phase2 implements Phase {
     public void question_reponse(int nb_question_par_themes) {
         for (int j = 0; j < nb_question_par_themes; j++) {
             for (int i = 0; i < joueurs.getJoueurs().size(); i++) {
-                Joueur_ok joueur = joueurs.getJoueurs().get(i);
+                Joueur joueur = joueurs.getJoueurs().get(i);
                 System.out.println("\nJoueur : " + joueur.getNom());
-                Question_ok question = questions.selection(num_phase);
+                Question question = questions.selection(num_phase);
 
                 poser_question(joueur, question);
 
+                //chrono start/resume
+                if(j == 0)
+                {
+                    joueur.getChrono().start();
+                }
+                else
+                {
+                    joueur.getChrono().resume();
+                }
+
                 String reponse = reponse_question(question);
+
+                //chrono end/pause
+                if(j == nb_question_par_themes - 1)
+                {
+                    joueur.getChrono().stop();
+                }
+                else
+                {
+                    joueur.getChrono().pause();
+                }
+
+                test_reponse(joueur, question, reponse);
+                joueur.setEtat("répondu");
+            }
+        }
+    }
+
+    public void question_reponse_IA(int nb_question_par_themes) {
+        for (int j = 0; j < nb_question_par_themes; j++) {
+            for (int i = 0; i < joueurs.getJoueurs().size(); i++) {
+                Joueur joueur = joueurs.getJoueurs().get(i);
+                System.out.println("\nJoueur : " + joueur.getNom());
+                Question question = questions.selection_theme_phase2_IA();
+
+                poser_question(joueur, question);
+
+                //chrono start/resume
+                if(j == 0)
+                {
+                    joueur.getChrono().start();
+                }
+                else
+                {
+                    joueur.getChrono().resume();
+                }
+
+                String reponse = reponse_question_IA(question);
+                System.out.println(reponse);
+
+                //chrono end/pause
+                if(j == nb_question_par_themes - 1)
+                {
+                    joueur.getChrono().stop();
+                }
+                else
+                {
+                    joueur.getChrono().pause();
+                }
 
                 test_reponse(joueur, question, reponse);
                 joueur.setEtat("répondu");
@@ -74,23 +148,44 @@ class Phase2 implements Phase {
     }
 
     public void determiner_gagant_et_elimine() {
-        int maxIndex = 0;
         int minIndex = 0;
+        int maxIndex = 0;
+
+        //min
+        for (int i = 1; i < joueurs.getJoueurs().size(); i++) {
+            if (joueurs.getJoueurs().get(i).getScore() < joueurs.getJoueurs().get(minIndex).getScore())
+            {
+                minIndex = i;
+            }
+            else if(joueurs.getJoueurs().get(i).getScore() == joueurs.getJoueurs().get(minIndex).getScore())
+            {
+                if(joueurs.getJoueurs().get(i).getChrono().getDureeMs() > joueurs.getJoueurs().get(minIndex).getChrono().getDureeMs())
+                {
+                    minIndex = i;
+                }
+            }
+        }
+
+        //max
         for (int i = 1; i < joueurs.getJoueurs().size(); i++) {
             if (joueurs.getJoueurs().get(i).getScore() > joueurs.getJoueurs().get(maxIndex).getScore()) {
                 maxIndex = i;
             }
-        }
-        for (int i = 1; i < joueurs.getJoueurs().size(); i++) {
-            if (joueurs.getJoueurs().get(i).getScore() < joueurs.getJoueurs().get(maxIndex).getScore()) {
-                minIndex = i;
+            else if(joueurs.getJoueurs().get(i).getScore() == joueurs.getJoueurs().get(maxIndex).getScore())
+            {
+                if(joueurs.getJoueurs().get(i).getChrono().getDureeMs() < joueurs.getJoueurs().get(maxIndex).getChrono().getDureeMs())
+                {
+                    maxIndex = i;
+                }
             }
         }
 
+        //Mise a niveaux des états
         joueurs.getJoueurs().get(maxIndex).changement_etat("super gagnant");
         joueurs.getJoueurs().get(minIndex).changement_etat("éliminé");
 
-        for (Joueur_ok joueur : joueurs.getJoueurs()) {
+        for (Joueur joueur : joueurs.getJoueurs()) //pour les autres joueurs
+        {
             if (joueur.getEtat().equals("répondu")) {
                 joueur.setEtat("gagnant");
             }
@@ -99,7 +194,15 @@ class Phase2 implements Phase {
         System.out.println(joueurs);
     }
 
-    public Joueur_ok deroulement_phase() {
+    public void remise_a_zero_chrono()
+    {
+        for(Joueur joueur : joueurs.getJoueurs())
+        {
+            joueur.getChrono().reset();
+        }
+    }
+
+    public Joueur deroulement_phase() {
         System.out.println("\nPhase 2 :");
 
         selectionner_joueur();
@@ -108,6 +211,27 @@ class Phase2 implements Phase {
         question_reponse(2);
 
         determiner_gagant_et_elimine();
+
+        remise_a_zero_chrono();
+        return null;
+    }
+
+    public Joueur deroulement_phase_IA() {
+        System.out.println("\nPhase 2 :");
+
+        selectionner_joueur();
+        System.out.println(joueurs);
+
+        question_reponse_IA(2);
+
+        determiner_gagant_et_elimine();
+
+        remise_a_zero_chrono();
+        return null;
+    }
+
+    @Override
+    public Joueur deroulement_phase_grand_jeu() {
         return null;
     }
 }
