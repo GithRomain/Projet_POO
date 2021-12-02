@@ -50,9 +50,9 @@ class Questions { //faire tableaux en fct du theme
         System.out.println("\nSaisir 3 indices differents parmis :" + themes);
 
         for (int i = 0; i < n; i++) {
-            int ind = scanner.nextInt();
-            Jeu.sortir(String.valueOf(ind));
-            integerList.add(ind);
+            String ind = scanner.next();
+            Jeu.sortir((ind));
+            integerList.add(Integer.parseInt(ind));
         }
         for (int i = 0; i < themes.getThemeList().size(); i++) {
             if (!integerList.contains(i)) {

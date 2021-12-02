@@ -16,9 +16,9 @@ class Joueurs
 
         System.out.println("\n(int) Combien de joueur en plus le maitre du jeu veut ajouter ?");
         Scanner scanner = new Scanner(System.in);
-        int new_n = scanner.nextInt();
-        Jeu.sortir(String.valueOf(new_n));
-        n += new_n; //ajout de nouveaux joueurs aux 20 initials
+        String new_n = scanner.next();
+        Jeu.sortir(new_n);
+        n += Integer.parseInt(new_n); //ajout de nouveaux joueurs aux 20 initials
 
         while (joueurs.size() != n)
         {
